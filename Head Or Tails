@@ -1,0 +1,50 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Welcome!, to head or tail game!");
+        Scanner x= new Scanner(System.in);
+        int user=0;
+        int system=0;
+        int head=1;
+        int tail=0;
+        System.out.println("How many rounds do you want to:");
+        int rounds = x.nextInt();
+        for(int i=1;i<=rounds;i++)
+        {
+            System.out.println("Your choice head(1)/tail(0):");
+            int userChoice=x.nextInt();
+            Random rand=new Random();
+            int systemChoice=rand.nextInt(2);
+            System.out.println("your choice:"+ userChoice+" and System choice:"+systemChoice);
+            if (systemChoice>userChoice)   
+            {
+                system += 1;
+                System.out.println("round"+ i + ": winner is System");
+            }
+            else if(userChoice>systemChoice)   
+            {
+                user += 1;
+                System.out.println("round"+ i + ": you won");
+             }
+             else if (userChoice==systemChoice){
+                System.out.println("round"+i+ ": draw");
+
+             }
+        }
+
+   if (system>user)   
+    {
+        System.out.println("System is the winner of the game with the score of:"+ system +"your score is:"+ user);
+    }
+    else if(user>system)   
+    {
+        System.out.println("you are the winner of the game with the score of:"+ user +"system score is:"+ system);
+     }
+     else if (user==system){
+        System.out.println("round is drawn you both score :"+system);
+
+     }
+    }
+}
